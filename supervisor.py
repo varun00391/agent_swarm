@@ -79,16 +79,6 @@ math_agent = create_react_agent(
              """
 )
 
-# research_agent = create_react_agent(
-#     model=model,
-#     tools=[web_search],
-#     name="research_expert",
-#     prompt="""
-#            You are a world class researcher with access to web search.
-#            Your goal is to find relevant information based on query. Do not do any math.
-#            Return raw search results if that directly answers the query or synthesize if asked.
-#            """
-# )
 
 research_agent = create_react_agent(
     model=model,
@@ -104,21 +94,6 @@ research_agent = create_react_agent(
            """
 )
 
-# workflow = create_supervisor(
-#     model=model,
-#     agents=[research_agent,math_agent],
-#     prompt = (
-#         """
-#         You are a supervisor managing two agents: a research agent, a math agent.
-#         - **research_agent**: Use for finding raw information from the web.
-#         - **math_agent**: Use for performing calculations on numbers.
-#         Assign work to one agent at a time, do not call agents in parallel. Do not do any work yourself.
-#         Ensure data is extracted before math is attempted.
-#         """
-#     ),
-#     add_handoff_back_messages=True,
-#     output_mode="full_history",
-# )
 
 workflow = create_supervisor(
     model=model,
@@ -139,11 +114,8 @@ workflow = create_supervisor(
     output_mode="full_history",
 )
 
-# config={"recursion_limit": 20}
-app = workflow.compile()
 
-# config={"recursion_limit": 100} # Increased limit
-# app = workflow.compile(config={"recursion_limit": 50}) # If you want to pass it during compile
+app = workflow.compile()
 
 
 image = app.get_graph().draw_mermaid_png()
