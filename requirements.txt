@@ -1,0 +1,8 @@
+langchain
+langchain-community
+langgraph
+langgraph-swarm
+langchain-groq
+langgraph-supervisor
+tavily-python
+langchain-tavily
