@@ -66,7 +66,7 @@ This project is a **multi-agent travel planning assistant** powered by **LangGra
 
 ---
 
-## 🖼️Mermaid Graph
+## Mermaid Graph
 
 To visualize the agent interactions, the graph is generated using:
 
